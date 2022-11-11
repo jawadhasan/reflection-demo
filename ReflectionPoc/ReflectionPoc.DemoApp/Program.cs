@@ -1,11 +1,33 @@
 ﻿using System.Reflection;
+using System.Threading.Channels;
 using ReflectionPoc.DemoApp;
 using ReflectionPoc.DemoApp.Vehicles;
 
 //Demo2();
 //Demo1();
 //StartCode();
-Demo3();
+//Demo3();
+
+Demo4();
+
+void Demo4()
+{
+    var externalAssembly = Assembly.Load("System.Text.Json");
+    var typesFromExternalAssembly = externalAssembly.GetTypes();
+    var oneType = externalAssembly.GetType("System.Text.Json.JsonProperty");
+
+    Console.WriteLine($"oneType: {oneType}");
+
+    var modulesFromAssembly = externalAssembly.GetModules();
+    var oneModule = externalAssembly.GetModule("System.Text.Json.dll");
+
+    Console.WriteLine(modulesFromAssembly[0]);
+    Console.WriteLine(oneModule);
+
+
+
+
+}
 
 void Demo3()
 {
@@ -16,7 +38,12 @@ void Demo3()
         Console.WriteLine(type.Name);
     }
 
+    Console.WriteLine();
 
+    //get a particular type from assembly
+    //name must be fully-qualified-type-name
+    var oneTypeFromAssembly = myAssembly.GetType("ReflectionPoc.DemoApp.Vehicles.Truck");
+    Console.WriteLine(oneTypeFromAssembly);
 
 }
 
