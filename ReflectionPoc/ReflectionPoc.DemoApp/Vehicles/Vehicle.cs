@@ -31,6 +31,11 @@ namespace ReflectionPoc.DemoApp.Vehicles
         {
             StorageArea = storageArea;
         }
+
+        protected void UpdateSpeed()
+        {
+            Console.WriteLine("Updating Speed.");
+        }
     }
 
     public class FlyingCar : Vehicle

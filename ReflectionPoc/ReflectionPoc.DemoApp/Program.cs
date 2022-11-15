@@ -1,14 +1,16 @@
 ﻿using System.Reflection;
-using System.Threading.Channels;
 using ReflectionPoc.DemoApp;
 using ReflectionPoc.DemoApp.Vehicles;
+
+
+//****************Part-1 Demos***********************
+
 
 //Demo2();
 //Demo1();
 //StartCode();
 //Demo3();
-
-Demo4();
+//Demo4();
 
 void Demo4()
 {
@@ -85,3 +87,53 @@ void StartCode()
     }
 
 }
+
+
+//****************Part-2 Demos***********************
+
+//GetTypeInfoDemo();
+
+ReportHelperDemo();
+
+void ReportHelperDemo()
+{
+    Console.WriteLine("*****ReportHelper Demo*******");
+    //var vehicle = new Car("1", "car-1", "Tesla");
+
+    var vehicle = new Truck("2", "truck-1", 4);
+    ReportHelper.WriteV2(vehicle);
+}
+
+
+//GetTypeInfoDemo();
+void GetTypeInfoDemo()
+{
+    var oneTypeFromAssembly = Assembly
+        .GetExecutingAssembly()
+        .GetType("ReflectionPoc.DemoApp.Vehicles.Truck");
+
+    Console.WriteLine("***GetMethods()****");
+    foreach (var info in oneTypeFromAssembly.GetMethods())
+    {
+        Console.WriteLine(info);
+    }
+    Console.WriteLine();
+
+    Console.WriteLine("***GetProperties()****");
+    foreach (var info in oneTypeFromAssembly.GetProperties(BindingFlags.Instance |
+                                                           BindingFlags.Public |
+                                                           BindingFlags.DeclaredOnly))
+    {
+        Console.WriteLine(info);
+    }
+    Console.WriteLine();
+
+
+    Console.WriteLine("***GetConstructors()****");
+    foreach (var info in oneTypeFromAssembly.GetConstructors())
+    {
+        Console.WriteLine(info);
+    }
+
+}
+

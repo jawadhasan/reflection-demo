@@ -9,6 +9,19 @@ namespace ReflectionPoc.DemoApp
         {
             
             Console.WriteLine($"{vehicle.Id} {vehicle.LicensePlate}");
+
         }
+
+        public static void WriteV2(Vehicle vehicle)
+        {
+
+            Console.WriteLine($"{vehicle.Id} {vehicle.LicensePlate}");
+            Console.WriteLine();
+
+            var propInfos = ReflectionHelper.GetPropertyValueList(vehicle);
+            Console.WriteLine(propInfos);
+        }
+
+       
     }
 }
