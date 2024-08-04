@@ -1,8 +1,6 @@
 # Reflection Demo
+Reflection Demo using .NET
 
-## Article Part- 1 Using Reflection in C#
-https://hexquote.com/using-reflection-in-c/
-
-
-## Article Using Reflection in C# - Part 2
-https://hexquote.com/using-reflection-in-c-part-2/
+## Article
+https://hexquote.com/using-reflection-in-c/    
+https://hexquote.com/using-reflection-in-c-part-2/    
